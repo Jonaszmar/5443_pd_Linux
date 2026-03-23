@@ -1,0 +1,11 @@
+# utwórz plik przykladowe_dane2.txt z zawartością
+echo -e "Ala\nKot\nPies\nAla\nPies\nZebra\nZebra\n" > przykladowe_dane2.txt
+
+# posortuj dane i zapisz do nowego pliku
+sort przykladowe_dane2.txt > posortowane_dane.txt
+
+# usuń duplikaty z posortowanego pliku
+uniq posortowane_dane.txt > unikalne_dane.txt
+
+# wyświetl zawartość pliku
+cat unikalne_dane.txt
