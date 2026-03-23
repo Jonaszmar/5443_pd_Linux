@@ -1,0 +1,32 @@
+# utwórz plik plik_do_archiwizacji.txt w katalogu domowym
+touch ~/plik_do_archiwizacji.txt
+
+# utwórz katalog Katalog_do_archiwizacji
+mkdir ~/Katalog_do_archiwizacji
+
+# skopiuj plik do katalogu
+cp ~/plik_do_archiwizacji.txt ~/Katalog_do_archiwizacji/
+
+# wyświetl zawartość katalogu
+ls ~/Katalog_do_archiwizacji
+
+# utwórz archiwum.tar zawierające plik
+tar -cvf archiwum.tar -C ~/Katalog_do_archiwizacji plik_do_archiwizacji.txt
+
+# sprawdź zawartość archiwum
+tar -tf archiwum.tar
+
+# skompresuj archiwum gzip
+gzip archiwum.tar
+
+# wyświetl zawartość katalogu
+ls
+
+# rozpakuj archiwum gzip
+gzip -d archiwum.tar.gz
+
+# wypakuj archiwum tar
+tar -xvf archiwum.tar
+
+# wyświetl zawartość katalogu po rozpakowaniu
+ls
