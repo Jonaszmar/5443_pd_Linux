@@ -1,0 +1,20 @@
+# utwórz plik sekwencje_genowe.txt z przykładowymi danymi
+echo -e ">GENE1\nATCGTACGTACGATCGATCGA\n>GENE2\nCGTACGATCAGCATCAGC\n>GENE3\nATCGTACGTACGGGGGGATCGA\n>GENE4\nGGGATCATCGACGATC\n>GENE5\nATGCGTACGTACGATCG\n>GENE6\nGATCAGCGGATCGATCG\n>GENE7\nCGTACGTACAGCATCGTACG" > ~/sekwencje_genowe.txt
+
+# wyświetl plik
+cat ~/sekwencje_genowe.txt
+
+# znajdź linie zaczynające się od >
+grep "^>" ~/sekwencje_genowe.txt
+
+# znajdź linie, które nie zawierają wzorca ATCG
+grep -v "ATCG" ~/sekwencje_genowe.txt
+
+# znajdź linie zaczynające się od CGTACG
+grep "^CGTACG" ~/sekwencje_genowe.txt
+
+# znajdź linie zawierające liczby
+grep "[0-9]" ~/sekwencje_genowe.txt
+
+# przeszukaj katalog domowy rekurencyjnie w poszukiwaniu wzorca ATG
+grep -r "ATG" ~
