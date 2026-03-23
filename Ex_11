@@ -1,0 +1,12 @@
+# sprawdź czy istnieje plik plik_testowy.txt
+ls plik_testowy.txt
+echo $?
+
+# utwórz katalog i przejdź do niego tylko jeśli się uda
+mkdir nowy_katalog && cd nowy_katalog
+
+# wykonaj dwa polecenia niezależnie od siebie
+echo "Witaj" ; ls
+
+# uruchom sleep 10 w tle
+sleep 10 &
