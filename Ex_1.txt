@@ -1,0 +1,33 @@
+vim plik_vi.txt
+i
+Bioinformatyka to przyszłość. Nauka terminala jest kluczem do sukcesu.
+esc
+:wq
+
+vim plik_vi.txt
+:%s/Bioinformatyka to przyszłość/Bioinformatyka zmienia świat/g
+:wq
+
+vim plik_vi.txt
+:set number
+yy
+g
+p
+:wq
+
+nano plik_nano.txt
+Nano jest prostym i intuicyjnym edytorem tekstu.
+Ctrl + O
+Enter
+Ctrl + X
+
+nano plik_nano.txt
+Ctrl + W
+tekstu
+wpisuje kodu
+Ctrl + O
+Enter
+Ctrl + X
+
+nano -l plik_nano.txt
+
