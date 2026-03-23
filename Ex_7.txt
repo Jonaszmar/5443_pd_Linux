@@ -1,0 +1,17 @@
+# utwórz plik dane.txt z zawartością
+echo "Bioinformatyka to interdyscyplinarna dziedzina nauki." > ~/dane.txt
+echo "Bioinformatyka łączy informatykę i biologię." >> ~/dane.txt
+echo "W bioinformatyce analiza danych biologicznych odgrywa kluczową rolę." >> ~/dane.txt
+echo "To jest komentarz, który nie będzie usunięty." >> ~/dane.txt
+
+# zamień "Bioinformatyka" na "Informatyka"
+sed 's/Bioinformatyka/Informatyka/g' ~/dane.txt
+
+# usuń linie zawierające słowo "komentarz"
+sed '/komentarz/d' ~/dane.txt
+
+# wyświetl linie od 1 do 3
+sed -n '1,3p' ~/dane.txt
+
+# zamień wszystkie "a" na "e" i zapisz zmiany w pliku
+sed -i 's/a/e/g' ~/dane.txt
