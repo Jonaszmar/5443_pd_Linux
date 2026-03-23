@@ -1,0 +1,32 @@
+# przejdź do katalogu "Moje Katalogi"
+cd ~/Moje\ Katalogi
+
+# utwórz plik plik.txt z zawartością
+echo "To jest zawartość pliku" > plik.txt
+
+# utwórz dowiązanie twarde
+ln plik.txt plik_twardy.txt
+
+# wyświetl zawartość katalogu
+ls -l
+
+# przenieś oryginalny plik do katalogu domowego
+mv plik.txt ~
+
+# sprawdź czy dowiązanie twarde działa
+cat plik_twardy.txt
+
+# przejdź do katalogu domowego
+cd ~
+
+# utwórz dowiązanie symboliczne
+ln -s ~/plik.txt link_symboliczny.txt
+
+# wyświetl zawartość katalogu
+ls -l
+
+# usuń plik plik.txt
+rm plik.txt
+
+# sprawdź dowiązanie symboliczne
+cat link_symboliczny.txt
