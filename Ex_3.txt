@@ -1,0 +1,20 @@
+# utwórz nowy (pusty) plik tekstowy o nazwie notatki.txt w swoim katalogu domowym
+touch ~/notatki.txt
+
+# skopiuj plik notatki.txt do katalogu3 (z poziomu katalogu domowego)
+cp ~/notatki.txt ../test_katalog/katalog3/
+
+# poleceniem find wyświetl lokalizację pliku notatki.txt
+find ~ -name "notatki.txt"
+
+# skopiuj cały plik notatki.txt do notatki_kopia.txt w katalogu3
+cp ../test_katalog/katalog3/notatki.txt ../test_katalog/katalog3/notatki_kopia.txt
+
+# wyświetl listę wszystkich plików w katalogu3 (alfabetycznie + rozmiary)
+ls -lh ../test_katalog/katalog3
+
+# zmień nazwę pliku notatki.txt na zapiski.txt
+mv ../test_katalog/katalog3/notatki.txt ../test_katalog/katalog3/zapiski.txt
+
+# wylistuj pliki według daty modyfikacji
+ls -lt ../test_katalog/katalog3

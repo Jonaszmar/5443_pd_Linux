@@ -1,0 +1,29 @@
+# wyświetl listę plików i katalogów w swoim bieżącym katalogu
+ls
+
+# utwórz nowy katalog o nazwie test_katalog
+mkdir test_katalog
+
+# przejdź do nowo utworzonego katalogu
+cd test_katalog
+
+# stwórz w tym katalogu trzy nowe katalogi (katalog1, katalog2, katalog3) jednym poleceniem
+mkdir katalog1 katalog2 katalog3
+
+# wyświetl ponownie zawartość katalogu, aby upewnić się, że katalogi zostały utworzone
+ls
+
+# przenieś katalog1 do katalogu nadrzędnego
+mv katalog1 ..
+
+# usuń katalog2
+rmdir katalog2
+
+# wróć do katalogu głównego jednym poleceniem
+cd ..
+(powrót do katalogu domowego
+# cd ~
+)
+
+# utwórz katalog ze spacją w nazwie: Moje Katalogi
+mkdir "Moje Katalogi"
