@@ -1,0 +1,14 @@
+# utwórz plik przykladowe_dane.txt z zawartością
+echo -e "Kurs Bioinformatyka\nAnaliza danych\nProgramowanie w Pythonie\nWykorzystanie narzędzi\nZastosowania w biologii\n" > przykladowe_dane.txt
+
+# wyświetl zawartość pliku
+cat przykladowe_dane.txt
+
+# wyświetl pierwsze 3 linie pliku
+head -n 3 przykladowe_dane.txt
+
+# wyświetl ostatnie niepuste 2 linie pliku
+grep -v '^$' przykladowe_dane.txt | tail -n 2
+
+# zlicz liczbę linii, słów i znaków
+wc przykladowe_dane.txt
