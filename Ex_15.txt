@@ -1,0 +1,8 @@
+# wypisz nazwę próbki i długość sekwencji
+awk -F "," '{print $1, $3}' dane_genetyczne.txt
+
+# średnia długość dla DNA
+awk -F "," '$2=="DNA" {suma+=$3; licznik++} END {print "Średnia DNA:", suma/licznik}' dane_genetyczne.txt
+
+# średnia długość dla RNA
+awk -F "," '$2=="RNA" {suma+=$3; licznik++} END {print "Średnia RNA:", suma/licznik}' dane_genetyczne.txt
