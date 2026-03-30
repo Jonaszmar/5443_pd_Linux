@@ -1,0 +1,128 @@
+# ========================
+# Przygotowanie środowiska
+# ========================
+
+# utworzenie katalogu
+mkdir ~/projekt_bioinfo
+
+# utworzenie grupy
+sudo groupadd bio_grupa
+
+# dodanie użytkownika do grupy
+sudo usermod -aG bio_grupa $(whoami)
+
+# zmiana grupy katalogu
+chown :bio_grupa ~/projekt_bioinfo
+
+# ustawienie uprawnień 
+chmod 770 ~/projekt_bioinfo
+
+
+# ========================
+# Zarządzanie plikami
+# ========================
+
+# przejście do katalogu domowego
+cd ~
+
+# pobranie sekwencji 
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=3630&db=gene&report=fasta" -O human.fa
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=397415&db=gene&report=fasta" -O pig.fa
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=483665&db=gene&report=fasta" -O dog.fa
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=493804&db=gene&report=fasta" -O cat.fa
+
+# przeniesienie plików
+mv *.fa ~/projekt_bioinfo/
+
+cd ~/projekt_bioinfo
+
+
+# ========================
+# Przetwarzanie plików
+# ========================
+
+# zmiana nagłówków
+sed -i '1s/.*/>INS_human/' human.fa
+sed -i '1s/.*/>INS_pig/' pig.fa
+sed -i '1s/.*/>INS_dog/' dog.fa
+sed -i '1s/.*/>INS_cat/' cat.fa
+
+# połączenie w jeden plik
+cat human.fa pig.fa dog.fa cat.fa > INS_multifasta.fa
+
+
+# ========================
+# Wyszukiwanie motywu
+# ========================
+
+# wyszukiwanie motywu AGCT
+grep "AGCT" INS_multifasta.fa > motyw_AGCT.txt
+
+# zliczanie wystąpień
+grep -o "AGCT" motyw_AGCT.txt | wc -l
+
+
+# ========================
+# Automatyzacja (skrypt)
+# ========================
+
+nano script.sh
+
+# ========================
+# Skrypt w script.sh
+
+
+#!/bin/bash
+
+# pobranie sekwencji (przykład: człowiek)
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=3630&db=gene&report=fasta" -O seq.fa
+
+# zmiana nagłówka
+sed -i '1s/.*/>INS_sample/' seq.fa
+
+# wyszukiwanie motywu
+grep "AGCT" seq.fa > wynik.txt
+
+# zliczanie
+count=$(grep -o "AGCT" wynik.txt | wc -l)
+
+# komunikat końcowy
+echo "Zadanie zakończone. Liczba wystąpień AGCT: $count"
+
+
+# ========================
+
+# nadanie uprawnień
+chmod +x script.sh
+
+# uruchomienie
+./script.sh
+
+
+# ========================
+# Dowiązania
+# ========================
+
+# dowiązanie symboliczne do katalogu
+ln -s ~/projekt_bioinfo ~/link_do_projektu
+
+# dowiązanie twarde do pliku
+ln INS_multifasta.fa INS_multifasta_hardlink.fa
+
+
+# ========================
+# Archiwizacja
+# ========================
+
+# utworzenie archiwum
+tar -czvf ~/projekt_bioinfo.tar.gz ~/projekt_bioinfo
+
+
+# ========================
+# Transfer plików (scp)
+# ========================
+
+scp -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa ~/projekt_bioinfo.tar.gz pd5443@msh.pjwstk.edu.pl:/home/PJWSTK/pd5443
+
+
+
