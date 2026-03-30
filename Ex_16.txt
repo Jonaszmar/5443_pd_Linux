@@ -1,0 +1,2 @@
+# wyświetl próbki typu DNA o długości > 180
+awk -F "," '$2=="DNA" && $3>180 {print $1}' dane_genetyczne.txt
